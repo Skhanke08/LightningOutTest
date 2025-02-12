@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Lightning Out Test</title>
+    </head>
+    <body>
+        <h1>My External Page with Lightning Out</h1>
+        <div id="lightning-out"></div>
+
+        <!-- Include Lightning Out Library from Experience Site -->
+        <script src="https://your-experience-site.force.com/lightning/lightning.out.js"></script>
+
+        <script>
+            $Lightning.use(
+                "c:MyLightningOutApp", // Name of your Lightning Out Aura App
+                function () {
+                    $Lightning.createComponent(
+                        "c:MyCustomComponent", // Your LWC or Aura Component
+                        {}, // Pass attributes if needed
+                        "lightning-out", // HTML div where the component will be inserted
+                        function (cmp) {
+                            console.log("Component Loaded Successfully!");
+                        }
+                    );
+                },
+                "	https://ccfutures-us-gsk--nadea.sandbox.my.site.com" // Experience Site URL
+            );
+        </script>
+    </body>
+</html>
