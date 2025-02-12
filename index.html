@@ -1,31 +1,26 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Lightning Out Test</title>
     </head>
     <body>
-        <h1>My External Page with Lightning Out</h1>
+        <h1>My External Page</h1>
         <div id="lightning-out"></div>
-
-        <!-- Include Lightning Out Library from Experience Site -->
         <script src="https://ccfutures-us-gsk--nadea.sandbox.my.site.com/lightning/lightning.out.js"></script>
-
         <script>
             $Lightning.use(
-                "c:MyLightningOutApp", // Name of your Lightning Out Aura App
-                function () {
+                'c:MyLightningOutApp', // name of the Lightning Out app
+                function () { // callback after the framework and app load
                     $Lightning.createComponent(
-                        "c:MyCustomComponent", // Your LWC or Aura Component
-                        {}, // Pass attributes if needed
-                        "lightning-out", // HTML div where the component will be inserted
-                        function (cmp) {
-                            console.log("Component Loaded Successfully!");
+                        'c:MyCustomComponent', // top-level component of the Lightning Out app
+                        {}, // attributes to set on the component
+                        'lightning-out', // DOM element ID where the component is inserted
+                        function (cmp) { // callback after the component loads
+                            console.log('The component was created.');
                         }
                     );
                 },
-                "https://ccfutures-us-gsk--nadea.sandbox.my.site.com" // Experience Site URL
+                'https://ccfutures-us-gsk--nadea.sandbox.my.site.com' // Experience Cloud site endpoint
             );
         </script>
     </body>
